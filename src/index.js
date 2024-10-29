@@ -8,16 +8,6 @@ function createDivID(id) {
   return div;
 }
 
-function createDivClass(cls) {
-  const div = document.createElement('div');
-  div.classList.add(cls);
-  return div;
-}
-
-function getMainContainer() {
-  return document.querySelector('#main-container');
-}
-
 function getWeatherDisplay() {
   return document.querySelector('#weather-display');
 }
@@ -134,7 +124,7 @@ function search(input) {
       displayWeather(data);
     })
     .catch((error) => {
-      getWeatherDisplay().textContent = 'Error';
+      getWeatherDisplay().textContent = error;
     });
 }
 
@@ -148,7 +138,7 @@ function clickSearch(event) {
   const searchButton = document.querySelector('#search-btn');
   searchButton.addEventListener('click', clickSearch);
 
-  getWeather('france')
+  getWeather('tampa')
     .then((data) => {
       displayWeather(data);
     })
